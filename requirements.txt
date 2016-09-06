@@ -1,0 +1,2 @@
+git+https://github.com/vegvesen/ckanext-dcat.git
+git+https://github.com/ckan/ckanext-scheming.git
