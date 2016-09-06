@@ -1,21 +1,21 @@
-ckanext-dcat_ap_no
-==================
+# ckanext-dcat_ap_no
+
 This is a collection of stuff needed to make CKAN conform to the 
 norwegian dcat-ap standard.
 
-Requirements
-************
+## Requirements
+
 Install the plugins `ckanext-dcat` and `ckanext-scheming` and configure them accordingly.
 
-Note!
-#####
+#### Note!
+
 
 Until `ckanext-dcat` has merged [PR#66](https://github.com/ckan/ckanext-dcat/pull/66) you have to install from the fork using
     
-        (pyenv) $ pip install -e git+https://github.com/vegvesen/ckanext-dcat.git@feature/dcat-ap11#egg=ckanext-dcat
+    (pyenv) $ pip install -e git+https://github.com/vegvesen/ckanext-dcat.git@feature/dcat-ap11#egg=ckanext-dcat
 
-Installation
-************
+## Installation
+
 
 1.  Install the package
 
