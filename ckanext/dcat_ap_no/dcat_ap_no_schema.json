@@ -1,22 +1,22 @@
 {
   "scheming_version": 1,
   "dataset_type": "dataset",
-  "about": "A reimplementation of the default CKAN dataset schema",
-  "about_url": "http://github.com/ckan/ckanext-scheming",
+  "about": "DCAT-AP-No v. 1.1, the Norwegian version of DCAT-AP",
+  "about_url": "https://doc.difi.no/dcat-ap-no/",
   "dataset_fields": [
-    {
+    { "dcat_ap_no_comment": "dct:title",
       "field_name": "title",
       "label": "Title",
       "preset": "title",
       "form_placeholder": "eg. A descriptive title"
     },
-    {
+    { "dcat_ap_no_comment": "CKAN-specific field. Might be used as dct:identifier, but probably best not to.",
       "field_name": "name",
       "label": "URL",
       "preset": "dataset_slug",
       "form_placeholder": "eg. my-dataset"
     },
-    {
+    { "dcat_ap_no_comment": "dct:description",
       "field_name": "notes",
       "label": "Description",
       "form_snippet": "markdown.html",
@@ -110,7 +110,8 @@
                             "no": "Lenke til relevant paragraf i Lovdata"},
       "display_property": "dct:accessRightsComment",
       "display_snippet": "link.html",
-      "help_text": "If 'access rights' is 'restricted' or 'non-public', use this field to refer to the legal basis for restricting access to the data."
+      "help_text": "If 'access rights' is 'restricted' or 'non-public', use this field to refer to the legal basis for restricting access to the data.",
+      "help_inline" : "true"
     }
 ,
     {
@@ -133,7 +134,8 @@
       "display_property": "dct:conformsTo",
       "display_snippet": "link.html",
       "help_text": {    "en": "Link to implementation rule or other specification.",
-                        "no": "Referanse til en implementasjons-regel eller annen spesifikasjon som ligger til grunn for opprettelsen av datasettet."}
+                        "no": "Referanse til en implementasjons-regel eller annen spesifikasjon som ligger til grunn for opprettelsen av datasettet."},
+      "help_inline" : "false"
     },
     {
       "field_name": "documentation",

@@ -1,7 +1,6 @@
 # ckanext-dcat_ap_no
 
-This is a collection of stuff needed to make CKAN conform to the 
-norwegian dcat-ap standard.
+This is a collection of stuff needed to make CKAN conform to DCAT-AP-NO, the Norwegian adaption of the DCAT-AP standard. (It's compatible with DCAT-AP, but has a few additional fields.) It can be found here: https://doc.difi.no/dcat-ap-no/
 
 ## Requirements
 
@@ -34,3 +33,7 @@ Until `ckanext-dcat` has merged [PR#66](https://github.com/ckan/ckanext-dcat/pul
         ckan.publisher.name = Your name
         ckan.publisher.email = someone@domain.no
         ckan.publisher.webpage = http://domain.no
+
+## Additional information
+
+The field 'dcat_ap_no_comment' is used to list the field's corresponding URI in the standard. It will not be displayed, and is just used as a comment for information.
