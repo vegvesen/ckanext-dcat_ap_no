@@ -51,7 +51,6 @@ The following fields from DCAT-AP-NO has currently *not* been mapped in dcat_ap_
  * Only email is given as contact info, additional contact info should be added
 * dcat:distribution: Resource is used for this
 * adms:sample: Not mapped, should use Resource with a new field indicating that this is an example
-* dct:relation ?
 
 The following fields have range dcat:dataset, and should be mapped using CKAN's relationship ( http://docs.ckan.org/en/latest/api/index.html#ckan.logic.action.create.package_relationship_create ):
 * dct:hasVersion
@@ -66,9 +65,33 @@ The following fields have range dcat:dataset, and should be mapped using CKAN's 
 * dct:replaces
 * dct:isReplacedBy
 
-There used to be a CKAN field for apps, articles etc, which might be useful for some of the fields which are links. 
-TODO: Check what happened to it!
+There used to be a CKAN field for apps, articles etc, which might be useful for some of the fields which are links (like dct:conformsTo, foaf:page). It was called related item. TODO: Check what happened to it! (Maybe not similar enough to relevant DCAT fields to be useful.)
 
 Resources (= distributions in CKAN): 
 
 * Not mapped yet.
+
+### Mapping in profiles.py
+
+Fields which are currently not mapped:
+
+* dcatno:accessRightsComment
+* dct:subject
+* dct:provenance
+* dct:type
+* dct:creator
+
+Fields where mapping between profiles.py and dcat_ap_no_schema.json exists, but is probably not correct:
+
+* dct:publisher
+* dct:spatial
+* dct:temporal
+* dct:license
+
+## TODO
+
+* Add DCAT-AP-NO fields for Resources
+* Compare field formats in dcat_ap_no_schema.json and profiles.py
+* Selection lists for controlled vocabs (like Frequency)
+* Figure out selection list for huge controlled vocabs
+* Figure out fields with range dcat:dataset
