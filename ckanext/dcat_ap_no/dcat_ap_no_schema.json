@@ -10,7 +10,7 @@
       "preset": "title",
       "form_placeholder": "eg. A descriptive title"
     },
-    { "dcat_ap_no_comment": "CKAN-specific field <============",
+    { "dcat_ap_no_comment": "CKAN-specific field",
       "field_name": "name",
       "label": "URL",
       "preset": "dataset_slug",
@@ -33,19 +33,19 @@
                   "no": "Tema"},
       "form_placeholder": "Transport"
     },    
-    { "dcat_ap_no_comment": "dct:publisher",
+    { "dcat_ap_no_comment": "dct:publisher <=================== check this w/profiles.py",
       "field_name": "owner_org",
       "label": "Organization",
       "preset": "dataset_organization"
     },
-    {  "dcat_ap_no_comment": "Author or Maintainer = dcat:contactPoint <=============",
+    {  "dcat_ap_no_comment": "CKAN specific field <=== can be used for dcat:contactPoint if no maintainer ",
       "field_name": "author",
       "label": "Author",
       "form_placeholder": "Joe Bloggs",
       "help_text": "Testing! Help inline = false.",
       "help_inline" : "false"
     },
-    {  "dcat_ap_no_comment": "Author or Maintainer = dcat:contactPoint <=============",
+    {  "dcat_ap_no_comment": "CKAN specific field <=== can be used for dcat:contactPoint if no maintainer ",
       "field_name": "author_email",
       "label": "Author Email",
       "form_placeholder": "joe@example.com",
@@ -54,13 +54,13 @@
       "help_text": "Testing! Help inline = true.",
       "help_inline" : "true"
     },
-    { "dcat_ap_no_comment": "Author or Maintainer = dcat:contactPoint <=============",
+    { "dcat_ap_no_comment": "dcat:contactPoint",
       "field_name": "maintainer",
       "label": "Maintainer",
       "form_placeholder": "Joe Bloggs",
       "help_text": "Testing! No entry for help inline."
     },
-    { "dcat_ap_no_comment": "Author or Maintainer = dcat:contactPoint <=============",
+    { "dcat_ap_no_comment": "dcat:contactPoint",
       "field_name": "maintainer_email",
       "label": "Maintainer Email",
       "form_placeholder": "joe@example.com",
@@ -81,7 +81,7 @@
       "help_text": "Testing! Help inline = true.",
       "help_inline" : "true"
       },
-    { "dcat_ap_no_comment": "dcatno:accessRightsComment",
+    { "dcat_ap_no_comment": "dcatno:accessRightsComment   <====== missing in profiles.py",
       "field_name": "access_rights_comment",
       "label": { "en": "Access Rights Comment",
                   "no": "Skjermingshjemmel"},
@@ -90,7 +90,7 @@
       "display_snippet": "link.html",
       "help_text": "If 'access rights' is 'restricted' or 'non-public', use this field to refer to the legal basis for restricting access to the data."
     },    
-    { "dcat_ap_no_comment": "dct:subject",
+    { "dcat_ap_no_comment": "dct:subject <====== missing in profiles.py",
       "field_name": "subject",
       "label": { "en": "Subject",
                   "no": "Begrep"},
@@ -100,7 +100,7 @@
       "help_text": {    "en": "Link to concepts which are important to understand the data.",
                         "no": "Referanse til sentrale begrep som er viktige for å forstå og tolke datasettet."}
     },
-    { "dcat_ap_no_comment": "dct:conformsTo <============ use CKAN's related here?",
+    { "dcat_ap_no_comment": "dct:conformsTo",
       "field_name": "conforms_to",
       "label": { "en": "Conforms to",
                   "no": "I samsvar med"},
@@ -110,7 +110,7 @@
       "help_text": {    "en": "Link to implementation rule or other specification.",
                         "no": "Referanse til en implementasjons-regel eller annen spesifikasjon som ligger til grunn for opprettelsen av datasettet."}
     },
-    { "dcat_ap_no_comment": "foaf:page <============ use CKAN's related here?",
+    { "dcat_ap_no_comment": "foaf:page",
       "field_name": "documentation",
       "label": { "en": "Documentation",
                   "no": "Dokumentasjon"},
@@ -126,15 +126,13 @@
                             "no": "Her skal vi ha en valgliste <======================="}
     },    
      { "dcat_ap_no_comment": "dcat:landingPage",
-      "field_name": "landingpage",
-      "label": { "en": "Landing Page",
-                  "no": "Hovedside"},
-      "form_placeholder": { "en": "Link",
-                            "no": "Lenke"},
+      "field_name": "url",
+      "label": "Source",
+      "form_placeholder": "http://example.com/dataset.json",
       "display_snippet": "link.html",
       "help_text": {    "en": "Link to main page for the dataset, with data and/or additional information.",
                         "no": "Nettside som gir tilgang til datasettet,  distribusjoner og/eller tilleggsinformasjon."}
-    },   
+    },
     { "dcat_ap_no_comment": "dct:language",
       "field_name": "language",
       "label": { "en": "Language",
@@ -145,7 +143,7 @@
                         "no": "Språket som datasettet er på."}
     },
     { "dcat_ap_no_comment": "adms:identifier",
-      "field_name": "identifier",
+      "field_name": "alternate_identifier",
       "label": { "en": "Other Identifier",
                   "no": "Annen identifikator"},
       "form_placeholder": { "en": "something",
@@ -153,22 +151,27 @@
       "help_text": {    "en": "Secondary identifier, like MAST/ADS, DataCite, DOI, EZID, or  W3ID.",
                         "no": "SReferanse til en sekundær identifikator, som MAST/ADS, DataCite, DOI, EZID eller W3ID."}
     },    
-    { "dcat_ap_no_comment": "dct:provenance",
+    { "dcat_ap_no_comment": "dct:provenance  <====== missing in profiles.py",
       "field_name": "provenance",
       "label": { "en": "Provenance",
                   "no": "Opphav"},
       "help_text": {    "en": "Reference to description of where/how the dataset is produced, and its quality.",
                         "no": "Referanse til objekt som beskriver hvor datasettet kommer fra, hvordan det er produsert og hvilken kvalitet det har"}
     },
+    { "dcat_ap_no_comment": "dct:relation",
+      "field_name": "related_resource",
+      "label": { "en": "Related resource",
+                  "no": "Relatert ressurs"}
+    },
     { "dcat_ap_no_comment": "dct:issued",
-      "field_name": "issued_date",
+      "field_name": "issued",
       "label": { "en": "Issued Date",
                   "no": "Utgivelsesdato"},
       "preset": "date",
       "help_text": {    "en": "The date the dataset was issued",
                         "no": "Datoen datasettet ble utgitt"}
     },
-    { "dcat_ap_no_comment": "dct:spatial",
+    { "dcat_ap_no_comment": "dct:spatial <==== check this with profiles.py",
       "field_name": "location",
       "label": { "en": "Location",
                   "no": "Dekningsområde"},
@@ -177,7 +180,7 @@
       "help_text": {    "en": "Geographical area covered by the dataset",
                         "no": "Geografisk område dekket av datasettet"}
     },
-    { "dcat_ap_no_comment": "dct:temporal - start date",
+    { "dcat_ap_no_comment": "dct:temporal - start date <==== check this with profiles.py",
       "field_name": "period_of_time_start_date",
       "label": { "en": "Period of time - start date",
                   "no": "Tidsperiode - startdato"},
@@ -185,7 +188,7 @@
       "help_text": {    "en": "Start date, if the dataset is valid for a limited time period",
                         "no": "Startdato hvis datasettet er gyldig for en begrenset tidsperiode"}
     },
-    { "dcat_ap_no_comment": "dct:temporal - end date",
+    { "dcat_ap_no_comment": "dct:temporal - end date <==== check this with profiles.py",
       "field_name": "period_of_time_end_date",
       "label": { "en": "Period of time - end date",
                   "no": "Tidsperiode - sluttdato"},
@@ -193,7 +196,7 @@
       "help_text": {    "en": "End date, if the dataset is valid for a limited time period",
                         "no": "Sluttdato hvis datasettet er gyldig for en begrenset tidsperiode"}
     },
-    { "dcat_ap_no_comment": "dct:type",
+    { "dcat_ap_no_comment": "dct:type   <=== missing in profiles.py",
       "field_name": "type",
       "label": { "en": "Type",
                   "no": "Type"},
@@ -220,24 +223,18 @@
       "form_placeholder": { "en": "The difference between this version and the previous one of the dataset",
                             "no": "Forskjellen mellom denne og forrige versjon av datasettet"}
     },      
-    { "dcat_ap_no_comment": "dct:creator",
+    { "dcat_ap_no_comment": "dct:creator  <==== missing in profiles.py",
       "field_name": "creator",
       "label": { "en": "Creator",
                   "no": "Skaper"},
       "help_text": {    "en": "Creator of the data set.",
                         "no": "Skaperen av av datasettet."}
     },    
-    { "dcat_ap_no_comment": "dct:license. NB! This is a CKAN field on dataset level. In DCAT-AP-NO, this is only given for catalogue and for distribution",
+    { "dcat_ap_no_comment": "dct:license. NB! This is a CKAN field on dataset level. In DCAT-AP-NO, this is only given for catalogue and for distribution  <=== check this with profiles.py",
       "field_name": "license_id",
       "label": "License",
       "form_snippet": "license.html",
       "help_text": "License definitions and additional information can be found at http://opendefinition.org/"
-    },
-    { "dcat_ap_no_comment": "CKAN specific field <==================== remove, or use for dcat:landingPage",
-      "field_name": "url",
-      "label": "Source",
-      "form_placeholder": "http://example.com/dataset.json",
-      "display_snippet": "link.html"
     }
     ],
   "resource_fields": [
