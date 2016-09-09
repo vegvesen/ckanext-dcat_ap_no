@@ -1,5 +1,7 @@
 # ckanext-dcat_ap_no
 
+NB! This is still a work in progress, not ready for use yet!
+
 This is a collection of stuff needed to make CKAN conform to DCAT-AP-NO, the Norwegian adaption of the DCAT-AP standard. (It's compatible with DCAT-AP, but has a few additional fields.) It can be found here: https://doc.difi.no/dcat-ap-no/
 
 ## Requirements
@@ -38,32 +40,34 @@ Until `ckanext-dcat` has merged [PR#66](https://github.com/ckan/ckanext-dcat/pul
 
 ### Schema specified in dcat_ap_no_schema.json
 
-The field 'dcat_ap_no_comment' is used to list the field's corresponding URI in the standard. It will not be displayed, and is just used as a comment for information.
+The field dcat_ap_no_comment is used to list the field's corresponding URI in the standard. It will not be displayed, and is just used as a comment for information.
 
 For most of the fields, we can't support cardinality greater than 1.
 
-Datasets: The following fields from DCAT-AP-NO has currently *not* been mapped in dcat_ap_no_schema.json:
+#### Datasets
+The following fields from DCAT-AP-NO has currently *not* been mapped in dcat_ap_no_schema.json:
 
 * dcat:contactPoint: 
- * CKAN field maintainer OR author should be mapped to it
  * Only email is given as contact info, additional contact info should be added
-* dcat:distribution: We'll using Resource for this
-* dct:conformsTo has been mapped, but maybe we should use Related for it instead
-* foaf:page: ditto
-* dct:hasVersion: Not mapped, should use Related
-* dct:isVersionOf: ditto
-* dct:relation: ditto
-* adms:sample: Not mapped, should use Resource
-* dct:source: Not mapped, should use Related
-* dct:temporal: Has been mapped, but have used separate fields for start date and end date
-* dct:references: Not mapped, should use Related
-* dct:isReferencedBy: ditto
-* dct:isPartOf: ditto
-* dct:hasPart: ditto
-* dct:requires: ditto
-* dct:isRequiredBy: ditto
-* dct:replaces: ditto
-* dct:isReplacedBy: ditto
+* dcat:distribution: Resource is used for this
+* adms:sample: Not mapped, should use Resource with a new field indicating that this is an example
+* dct:relation ?
+
+The following fields have range dcat:dataset, and should be mapped using CKAN's relationship ( http://docs.ckan.org/en/latest/api/index.html#ckan.logic.action.create.package_relationship_create ):
+* dct:hasVersion
+* dct:isVersionOf
+* dct:source
+* dct:references
+* dct:isReferencedBy
+* dct:isPartOf
+* dct:hasPart
+* dct:requires
+* dct:isRequiredBy
+* dct:replaces
+* dct:isReplacedBy
+
+There used to be a CKAN field for apps, articles etc, which might be useful for some of the fields which are links. 
+TODO: Check what happened to it!
 
 Resources (= distributions in CKAN): 
 
