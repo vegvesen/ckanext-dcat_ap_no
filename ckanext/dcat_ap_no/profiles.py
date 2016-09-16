@@ -80,6 +80,11 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
             ('version_notes', ADMS.versionNotes, None, Literal),
             ('frequency', DCT.accrualPeriodicity, None, URIRef),
             ('access_rights', DCT.accessRights, None, Literal),
+            ('access_rights_comment', DCT.accessRightsComment, None, URIRef),
+            ('subject', DCT.subject, None, URIRef),
+            ('provenance', DCT.provenance, None, URIRef),
+            ('type', DCT.type, None, URIRef),
+            ('creator', DCT.creator, None, URIRef),
         ]
         self._add_triples_from_dict(dataset_dict, dataset_ref, items)
 
