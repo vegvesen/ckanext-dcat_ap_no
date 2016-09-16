@@ -98,7 +98,7 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
         items = [
             ('language', DCT.language, None, URIRef),
             ('theme', DCAT.theme, None, URIRef),
-            ('conforms_to', DCT.conformsTo, None, Literal),
+            ('conforms_to', DCT.conformsTo, None, URIRef),
             ('alternate_identifier', ADMS.identifier, None, Literal),
             ('documentation', FOAF.page, None, URIRef),
             ('related_resource', DCT.relation, None, URIRef),
