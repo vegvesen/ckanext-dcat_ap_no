@@ -313,11 +313,13 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
         self.g.add((publisher_details, FOAF.homepage, URIRef(config.get('ckan.publisher.webpage', 'http://ckan.publisher.webpage'))))
         self.g.add((publisher_details, RDF.type, FOAF.Agent))  # Should be organization
 
+        site_url = config.get('ckan.site_url')
+        homepage = '{}/about'.format(site_url) if site_url else None
         # Basic fields
         items = [
             ('title', DCT.title, config.get('ckan.site_title'), Literal),
             ('description', DCT.description, config.get('ckan.site_description'), Literal),
-            ('homepage', FOAF.homepage, config.get('ckan.site_url'), URIRef),
+            ('homepage', FOAF.homepage, homepage, URIRef),
             ('language', DCT.language, config.get('ckan.locale_default', 'en'), Literal),
         ]
         for item in items:
