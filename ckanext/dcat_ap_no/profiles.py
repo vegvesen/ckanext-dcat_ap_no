@@ -16,8 +16,6 @@ from ckan.plugins import toolkit
 
 from ckanext.dcat.utils import resource_uri, publisher_uri_from_dataset_dict
 
-import logging
-logger = logging.getLogger(__name__)
 DCT = Namespace("http://purl.org/dc/terms/")
 DCAT = Namespace("http://www.w3.org/ns/dcat#")
 ADMS = Namespace("http://www.w3.org/ns/adms#")
@@ -229,11 +227,6 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
             g.add((dataset_ref, DCAT.distribution, distribution))
 
             g.add((distribution, RDF.type, DCAT.Distribution))
-
-            logger.error('ResLicence: {}'.format(resource_dict.get('license')))
-            logger.error('DtSetLicence: {}'.format(dataset_dict.get('license_id')))
-            if 'license' not in resource_dict and 'license_id' in dataset_dict:
-                resource_dict['license'] = dataset_dict['license_id']
 
             #  Simple values
             items = [
