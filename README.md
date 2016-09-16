@@ -35,7 +35,14 @@ Until `ckanext-dcat` has merged [PR#66](https://github.com/ckan/ckanext-dcat/pul
         ckan.publisher.name = Your name
         ckan.publisher.email = someone@domain.no
         ckan.publisher.webpage = http://domain.no
+        
+5. Add catalog info to your configuration file
 
+        ckan.catalog.license_url = http://domain.no/license
+        ckan.catalog.theme_url = http://domain.no/theme
+        ckan.catalog.issued = 2016-09-16T10:27:55.249666
+        
+        
 ## Additional information
 
 ### Schema specified in dcat_ap_no_schema.json

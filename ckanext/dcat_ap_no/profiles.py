@@ -332,8 +332,8 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
             ('description', DCT.description, config.get('ckan.site_description'), Literal),
             ('homepage', FOAF.homepage, homepage, URIRef),
             ('language', DCT.language, config.get('ckan.locale_default', 'en'), Literal),  # FIXME: Should be vocabulary URI
-            ('license', DCT.license, config.get('ckan.license_url'), URIRef),
-            ('theme', DCT.themeTaxnonomy, config.get('ckan.theme_taxonomy_url'), URIRef),
+            ('license', DCT.license, config.get('ckan.catalog.license_url'), URIRef),
+            ('theme', DCT.themeTaxnonomy, config.get('ckan.catalog.theme_url'), URIRef),
         ]
         for item in items:
             key, predicate, fallback, _type = item
@@ -349,6 +349,6 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
         if modified:
             self._add_date_triple(catalog_ref, DCT.modified, modified)
 
-        issued = config.get('ckan.catalog_issued')  # Should be string with supported datetime format
+        issued = config.get('ckan.catalog.issued')  # Should be string with supported datetime format
         if issued:
             self._add_date_triple(catalog_ref, DCT.issued, issued)
