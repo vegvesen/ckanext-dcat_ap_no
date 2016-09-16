@@ -16,6 +16,8 @@ from ckan.plugins import toolkit
 
 from ckanext.dcat.utils import resource_uri, publisher_uri_from_dataset_dict
 
+import logging
+logger = logging.getLogger(__name__)
 DCT = Namespace("http://purl.org/dc/terms/")
 DCAT = Namespace("http://www.w3.org/ns/dcat#")
 ADMS = Namespace("http://www.w3.org/ns/adms#")
@@ -76,7 +78,7 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
             ('identifier', DCT.identifier, ['guid', 'id'], Literal),  # FIXME: Should use the global unique identifer
             ('version', OWL.versionInfo, ['dcat_version'], Literal),
             ('version_notes', ADMS.versionNotes, None, Literal),
-            ('frequency', DCT.accrualPeriodicity, None, Literal),
+            ('frequency', DCT.accrualPeriodicity, None, URIRef),
             ('access_rights', DCT.accessRights, None, Literal),
         ]
         self._add_triples_from_dict(dataset_dict, dataset_ref, items)
@@ -94,12 +96,12 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
 
         #  Lists
         items = [
-            ('language', DCT.language, None, Literal),
+            ('language', DCT.language, None, URIRef),
             ('theme', DCAT.theme, None, URIRef),
             ('conforms_to', DCT.conformsTo, None, Literal),
             ('alternate_identifier', ADMS.identifier, None, Literal),
-            ('documentation', FOAF.page, None, Literal),
-            ('related_resource', DCT.relation, None, Literal),
+            ('documentation', FOAF.page, None, URIRef),
+            ('related_resource', DCT.relation, None, URIRef),
             ('has_version', DCT.hasVersion, None, Literal),
             ('is_version_of', DCT.isVersionOf, None, Literal),
             ('source', DCT.source, None, Literal),
@@ -223,6 +225,11 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
 
             g.add((distribution, RDF.type, DCAT.Distribution))
 
+            logger.error('ResLicence: {}'.format(resource_dict.get('license')))
+            logger.error('DtSetLicence: {}'.format(dataset_dict.get('license_id')))
+            if 'license' not in resource_dict and 'license_id' in dataset_dict:
+                resource_dict['license'] = dataset_dict['license_id']
+
             #  Simple values
             items = [
                 ('name', DCT.title, None, Literal),
@@ -236,9 +243,9 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
 
             #  Lists
             items = [
-                ('documentation', FOAF.page, None, Literal),
-                ('language', DCT.language, None, Literal),
-                ('conforms_to', DCT.conformsTo, None, Literal),
+                ('documentation', FOAF.page, None, URIRef),
+                ('language', DCT.language, None, URIRef),
+                ('conforms_to', DCT.conformsTo, None, URIRef),
             ]
             self._add_list_triples_from_dict(resource_dict, distribution, items)
 
