@@ -155,7 +155,7 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
                 # No organization nor publisher_uri
                 publisher_details = BNode()
 
-            g.add((publisher_details, DCT.type, FOAF.Agent))  # FIXME: DIFI doesn't like FOAF.Organization
+            g.add((publisher_details, RDF.type, FOAF.Agent))  # FIXME: DIFI doesn't like FOAF.Organization
             g.add((dataset_ref, DCT.publisher, publisher_details))
 
             publisher_name = self._get_dataset_value(dataset_dict, 'publisher_name')
@@ -322,7 +322,7 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
         self.g.add((publisher_details, FOAF.name, Literal(config.get('ckan.publisher.name', 'Publisher should be set in config: ckan.publisher.webpage'))))
         self.g.add((publisher_details, FOAF.mbox, Literal(config.get('ckan.publisher.email', 'Publisher should be set in config: ckan.publisher.email'))))
         self.g.add((publisher_details, FOAF.homepage, URIRef(config.get('ckan.publisher.webpage', 'http://ckan.publisher.webpage'))))
-        self.g.add((publisher_details, DCT.type, FOAF.Agent))  # FIXME: DIFI doesn't like foaf.Organization
+        self.g.add((publisher_details, RDF.type, FOAF.Agent))  # FIXME: DIFI doesn't like foaf.Organization
 
         site_url = config.get('ckan.site_url')
         homepage = '{}/about'.format(site_url) if site_url else None
