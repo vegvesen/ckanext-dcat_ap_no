@@ -1,6 +1,7 @@
 import datetime
 import json
 
+from ckan.model.license import LicenseRegister
 from ckanext.dcat.profiles import EuropeanDCATAPProfile
 from dateutil.parser import parse as parse_date
 
@@ -228,13 +229,18 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
 
             g.add((distribution, RDF.type, DCAT.Distribution))
 
+            if 'license' not in resource_dict and 'license_id' in dataset_dict:
+                lr = LicenseRegister()
+                _license = lr.get(dataset_dict['license_id'])
+                resource_dict['license'] = _license.url
+
             #  Simple values
             items = [
                 ('name', DCT.title, None, Literal),
                 ('description', DCT.description, None, Literal),
                 ('status', ADMS.status, None, Literal),
                 ('rights', DCT.rights, None, Literal),
-                ('license', DCT.license, None, Literal),
+                ('license', DCT.license, None, URIRef),
             ]
 
             self._add_triples_from_dict(resource_dict, distribution, items)
