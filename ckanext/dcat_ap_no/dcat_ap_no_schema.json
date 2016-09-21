@@ -81,7 +81,7 @@
       "help_text": "Testing! Help inline = true.",
       "help_inline" : "true"
       },
-    { "dcat_ap_no_comment": "dcatno:accessRightsComment   <====== missing in profiles.py",
+    { "dcat_ap_no_comment": "dcatno:accessRightsComment",
       "field_name": "access_rights_comment",
       "label": { "en": "Access Rights Comment",
                   "no": "Skjermingshjemmel"},
@@ -90,7 +90,7 @@
       "display_snippet": "link.html",
       "help_text": "If 'access rights' is 'restricted' or 'non-public', use this field to refer to the legal basis for restricting access to the data."
     },    
-    { "dcat_ap_no_comment": "dct:subject <====== missing in profiles.py",
+    { "dcat_ap_no_comment": "dct:subject",
       "field_name": "subject",
       "label": { "en": "Subject",
                   "no": "Begrep"},
@@ -151,7 +151,7 @@
       "help_text": {    "en": "Secondary identifier, like MAST/ADS, DataCite, DOI, EZID, or  W3ID.",
                         "no": "SReferanse til en sekundær identifikator, som MAST/ADS, DataCite, DOI, EZID eller W3ID."}
     },    
-    { "dcat_ap_no_comment": "dct:provenance  <====== missing in profiles.py",
+    { "dcat_ap_no_comment": "dct:provenance",
       "field_name": "provenance",
       "label": { "en": "Provenance",
                   "no": "Opphav"},
@@ -196,7 +196,7 @@
       "help_text": {    "en": "End date, if the dataset is valid for a limited time period",
                         "no": "Sluttdato hvis datasettet er gyldig for en begrenset tidsperiode"}
     },
-    { "dcat_ap_no_comment": "dct:type   <=== missing in profiles.py",
+    { "dcat_ap_no_comment": "dct:type",
       "field_name": "type",
       "label": { "en": "Type",
                   "no": "Type"},
@@ -223,7 +223,7 @@
       "form_placeholder": { "en": "The difference between this version and the previous one of the dataset",
                             "no": "Forskjellen mellom denne og forrige versjon av datasettet"}
     },      
-    { "dcat_ap_no_comment": "dct:creator  <==== missing in profiles.py",
+    { "dcat_ap_no_comment": "dct:creator",
       "field_name": "creator",
       "label": { "en": "Creator",
                   "no": "Skaper"},
