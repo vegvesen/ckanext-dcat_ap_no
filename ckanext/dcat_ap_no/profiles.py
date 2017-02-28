@@ -84,6 +84,7 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
             ('provenance', DCT.provenance, None, URIRef),
             ('type', DCT.type, None, URIRef),
             ('creator', DCT.creator, None, URIRef),
+            ('is_part_of', DCT.ispartof, None, URIRef)
         ]
         self._add_triples_from_dict(dataset_dict, dataset_ref, items)
 
