@@ -139,8 +139,8 @@
                    "no": "Språk"},
         "preset": "multiple_checkbox",
         "choices":[
-           {"value": "no", "label": "norsk"},
-           {"value": "en", "label": "engelsk"}
+           {"value": "http://publications.europa.eu/resource/authority/language/NOR", "label": "norsk"},
+           {"value": "http://publications.europa.eu/resource/authority/language/ENG", "label": "engelsk"}
         ],
         "form_placeholder": { "en": "Selection list to be inserted",
                               "no": "Her skal vi ha en valgliste"},
