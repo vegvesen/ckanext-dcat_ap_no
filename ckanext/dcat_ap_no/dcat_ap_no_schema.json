@@ -235,6 +235,22 @@
       "help_text": {    "en": "Creator of the data set.",
                         "no": "Skaperen av av datasettet."}
     },    
+    { "dcat_ap_no_comment": "dct:isPartOf",
+      "field_name": "is_part_of",
+      "label": { "en": "Is part of",
+                  "no": "Er del av"},
+      "help_text": {    "en": "Dataset which this dataset is a part of",
+                        "no": "Datasett som dette datasettet er en del av"},
+      "display_snippet": "link.html"
+    }, 
+    { "dcat_ap_no_comment": "dct:hasPart",
+      "field_name": "has_part",
+      "label": { "en": "Has part",
+                  "no": "Har del"},
+      "help_text": {    "en": "Dataset which has part of this dataset",
+                        "no": "Datasett som er en del av dette datasettet"},
+      "display_snippet": "link.html"
+    }, 
     { "dcat_ap_no_comment": "dct:license. NB! This is a CKAN field on dataset level. In DCAT-AP-NO, this is only given for catalogue and for distribution  <=== check this with profiles.py",
       "field_name": "license_id",
       "label": "License",
