@@ -77,10 +77,14 @@
       "field_name": "access_rights",
       "label": { "en": "Access Rights",
                   "no": "Tilgangsrettigheter"},
-      "form_placeholder": ":public",
-      "help_text": "Testing! Help inline = true.",
-      "help_inline" : "true"
-      },
+      "preset": "multiple_checkbox",
+      "choices":[
+           {"value": "http://publications.europa.eu/resource/authority/access-right/PUBLIC", "label": "public"},
+           {"value": "http://publications.europa.eu/resource/authority/access-right/RESTRICTED", "label": "restricted"},
+           {"value": "http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC", "label": "non-public"}           
+       ],
+       "help_text": "PUBLIC: Publicly accessible by everyone. Usage note: Permissible obstacles include registration and request for API keys, as long as anyone can request such registration and/or API keys. RESTRICTED: Only available under certain conditions. Usage note: This category may include resources that require payment, resources shared under non-disclosure agreements, resources for which the publisher or owner has not yet decided if they can be publicly released. NON-PUBLIC: Not publicly accessible for privacy, security or other reasons. Usage note: This category may include resources that contain sensitive or personal information."
+    },
     { "dcat_ap_no_comment": "dcatno:accessRightsComment",
       "field_name": "access_rights_comment",
       "label": { "en": "Access Rights Comment",
