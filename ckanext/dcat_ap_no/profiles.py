@@ -146,6 +146,7 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
         if any([
             self._get_dataset_value(dataset_dict, 'publisher_uri'),
             self._get_dataset_value(dataset_dict, 'publisher_name'),
+            self._get_dataset_value(dataset_dict, 'publisher_identifier'),
             dataset_dict.get('organization'),
         ]):
 
@@ -170,8 +171,9 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
             # custom fields
             items = [
                 ('publisher_email', FOAF.mbox, None, Literal),
+                ('publisher_identifier', DCT.identifier, None, Literal),
                 ('publisher_url', FOAF.homepage, None, URIRef),
-                ('publisher_type', DCT.type, None, Literal),
+                ('publisher_type', DCT.type, None, Literal)
             ]
 
             self._add_triples_from_dict(dataset_dict, publisher_details, items)
@@ -320,7 +322,8 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
         publisher_details = URIRef('{}/publisher/'.format(config.get('ckan.site_url')))
         g.add((catalog_ref, DCT.publisher, publisher_details))
 
-        self.g.add((publisher_details, FOAF.name, Literal(config.get('ckan.publisher.name', 'Publisher should be set in config: ckan.publisher.webpage'))))
+        self.g.add((publisher_details, DCT.identifier, Literal(config.get('ckan.publisher.identifier', 'Publisher should be set in config: ckan.publisher.identifier'))))
+        self.g.add((publisher_details, FOAF.name, Literal(config.get('ckan.publisher.name', 'Publisher should be set in config: ckan.publisher.name'))))
         self.g.add((publisher_details, FOAF.mbox, Literal(config.get('ckan.publisher.email', 'Publisher should be set in config: ckan.publisher.email'))))
         self.g.add((publisher_details, FOAF.homepage, URIRef(config.get('ckan.publisher.webpage', 'http://ckan.publisher.webpage'))))
         self.g.add((publisher_details, RDF.type, FOAF.Agent))  # FIXME: DIFI doesn't like foaf.Organization
