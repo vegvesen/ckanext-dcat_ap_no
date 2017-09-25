@@ -205,13 +205,6 @@
       "help_text": {    "en": "End date, if the dataset is valid for a limited time period",
                         "no": "Sluttdato hvis datasettet er gyldig for en begrenset tidsperiode"}
     },
-    { "dcat_ap_no_comment": "dct:type",
-      "field_name": "type",
-      "label": { "en": "Type",
-                  "no": "Type"},
-      "help_text": {    "en": "No controlled vocabulary has been established for this field yet",
-                        "no": "Det finnes ikke noe kontrollert vokabular for dette ennå"}
-    },
     { "dcat_ap_no_comment": "dct:modified",
       "field_name": "modified",
       "label": "Modified",

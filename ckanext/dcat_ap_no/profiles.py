@@ -82,7 +82,6 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
             ('access_rights_comment', DCT.accessRightsComment, None, URIRef),
             ('subject', DCT.subject, None, URIRef),
             ('provenance', DCT.provenance, None, URIRef),
-            ('type', DCT.type, None, URIRef),
             ('creator', DCT.creator, None, URIRef),
             ('is_part_of', DCT.ispartof, None, URIRef)
         ]
