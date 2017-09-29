@@ -27,11 +27,15 @@
       "label": "Identifier",
       "form_placeholder": "A global, unique identifier."
     },
-    { "dcat_ap_no_comment": "dct:theme",
+    { "dcat_ap_no_comment": "dct:theme <==== might want to add more of these",
       "field_name": "theme",
       "label": { "en": "Theme/subject",
                   "no": "Tema"},
-      "form_placeholder": "Transport"
+      "preset": "multiple_checkbox",
+      "choices":[
+           {"value": "http://publications.europa.eu/resource/authority/data-theme/TRAN", "label": {"en": "Transport", "no": "Transport"}},
+           {"value": "http://publications.europa.eu/resource/authority/data-theme/ENVI", "label": {"en": "Environment", "no": "Miljø"}}
+       ]      
     },    
     { "dcat_ap_no_comment": "dct:publisher <=================== check this w/profiles.py",
       "field_name": "owner_org",
@@ -137,17 +141,15 @@
       "help_text": {    "en": "Link to main page for the dataset, with data and/or additional information.",
                         "no": "Nettside som gir tilgang til datasettet,  distribusjoner og/eller tilleggsinformasjon."}
     },
-    { "dcat_ap_no_comment": "dct:language   <======================= Add labels in English as well",
+    { "dcat_ap_no_comment": "dct:language",
         "field_name": "language",
         "label": { "en": "Language",
                    "no": "Språk"},
         "preset": "multiple_checkbox",
         "choices":[
-           {"value": "http://publications.europa.eu/resource/authority/language/NOR", "label": "norsk"},
-           {"value": "http://publications.europa.eu/resource/authority/language/ENG", "label": "engelsk"}
+           {"value": "http://publications.europa.eu/resource/authority/language/NOR", "label": {"en": "Norwegian", "no": "norsk"}},
+           {"value": "http://publications.europa.eu/resource/authority/language/ENG", "label": {"en": "English", "no": "engelsk"}}
         ],
-        "form_placeholder": { "en": "Selection list to be inserted",
-                              "no": "Her skal vi ha en valgliste"},
         "help_text": {    "en": "The language of the dataset.",
                           "no": "Språket som datasettet er på."}
     },
@@ -180,14 +182,16 @@
       "help_text": {    "en": "The date the dataset was issued",
                         "no": "Datoen datasettet ble utgitt"}
     },
-    { "dcat_ap_no_comment": "dct:spatial <==== FIXME ADD spatial and spatial_uri",
-      "field_name": "spatial_text",
+    { "dcat_ap_no_comment": "dct:spatial <==== FIXME ADD translation and spatial and spatial_text",
+      "field_name": "spatial_uri",
       "label": { "en": "Location",
                   "no": "Dekningsområde"},
-      "form_placeholder": { "en": "e.g. Norway",
-                            "no": "f.eks. Norge"},
+      "preset": "multiple_checkbox",
+      "choices":[
+           {"value": "http://sws.geonames.org/3144096/", "label": {"en": "Norway", "no": "Norge"}}
+       ],
       "help_text": {    "en": "Geographical area covered by the dataset",
-                        "no": "Geografisk område dekket av datasettet"}
+                        "no": "Geografisk område dekket av datasettet"}                        
     },
     { "dcat_ap_no_comment": "dct:temporal - start date",
       "field_name": "temporal_start",
