@@ -188,8 +188,9 @@
                   "no": "Dekningsområde"},
       "preset": "multiple_checkbox",
       "choices":[
-           {"value": "http://sws.geonames.org/3144096/", "label": {"en": "Norway", "no": "Norge"}}
-       ],
+           {"value": "http://sws.geonames.org/3144096/", "label": {"en": "Norway", "no": "Norge"}},
+           {"value": "http://sws.geonames.org/3137400/", "label": {"en": "Sør-Trøndelag", "no": "Sør-Trøndelag"}}
+           ],
       "help_text": {    "en": "Geographical area covered by the dataset",
                         "no": "Geografisk område dekket av datasettet"}                        
     },
