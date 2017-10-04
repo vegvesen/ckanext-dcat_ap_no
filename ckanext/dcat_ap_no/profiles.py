@@ -100,6 +100,7 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
         items = [
             ('language', DCT.language, None, URIRef),
             ('theme', DCAT.theme, None, URIRef),
+            ('spatial_uri', DCT.spatial, None, URIRef),
             ('conforms_to', DCT.conformsTo, None, URIRef),
             ('alternate_identifier', ADMS.identifier, None, Literal),
             ('documentation', FOAF.page, None, URIRef),
@@ -191,36 +192,43 @@ class NorwegianDCATAPProfile(EuropeanDCATAPProfile):
             g.add((dataset_ref, DCT.temporal, temporal_extent))
 
         # Spatial
-        spatial_uri = self._get_dataset_value(dataset_dict, 'spatial_uri')
-        spatial_text = self._get_dataset_value(dataset_dict, 'spatial_text')
-        spatial_geom = self._get_dataset_value(dataset_dict, 'spatial')
+        # -----------------------------------------
+        # When I use this code, I get 
+        #    dct:spatial <[u'http://sws.geonames.org/3144096/']> ;
+        # when I want 
+        # dct:spatial <http://sws.geonames.org/3144096/> ;
+        # So for now I'll just comment out this section, and treat spatial like language and theme
+        #-----------------------------------------
+        #spatial_uri = self._get_dataset_value(dataset_dict, 'spatial_uri')
+        #spatial_text = self._get_dataset_value(dataset_dict, 'spatial_text')
+        #spatial_geom = self._get_dataset_value(dataset_dict, 'spatial')
 
-        if spatial_uri or spatial_text or spatial_geom:
-            if spatial_uri:
-                spatial_ref = URIRef(spatial_uri)
-            else:
-                spatial_ref = BNode()
+        #if spatial_uri or spatial_text or spatial_geom:
+        #    if spatial_uri:
+        #        spatial_ref = URIRef(spatial_uri)
+        #    else:
+        #        spatial_ref = BNode()
 
-            g.add((spatial_ref, RDF.type, DCT.Location))
-            g.add((dataset_ref, DCT.spatial, spatial_ref))
+        #    g.add((spatial_ref, RDF.type, DCT.Location))
+        #    g.add((dataset_ref, DCT.spatial, spatial_ref))
 
-            if spatial_text:
-                g.add((spatial_ref, SKOS.prefLabel, Literal(spatial_text)))
+        #    if spatial_text:
+        #        g.add((spatial_ref, SKOS.prefLabel, Literal(spatial_text)))
 
-            if spatial_geom:
-                # GeoJSON
-                g.add((spatial_ref,
-                       LOCN.geometry,
-                       Literal(spatial_geom, datatype=GEOJSON_IMT)))
-                # WKT, because GeoDCAT-AP says so
-                try:
-                    g.add((spatial_ref,
-                           LOCN.geometry,
-                           Literal(wkt.dumps(json.loads(spatial_geom),
-                                             decimals=4),
-                                   datatype=GSP.wktLiteral)))
-                except (TypeError, ValueError, InvalidGeoJSONException):
-                    pass
+        #    if spatial_geom:
+        #        # GeoJSON
+        #        g.add((spatial_ref,
+        #               LOCN.geometry,
+        #               Literal(spatial_geom, datatype=GEOJSON_IMT)))
+        #        # WKT, because GeoDCAT-AP says so
+        #        try:
+        #            g.add((spatial_ref,
+        #                   LOCN.geometry,
+        #                   Literal(wkt.dumps(json.loads(spatial_geom),
+        #                                     decimals=4),
+        #                           datatype=GSP.wktLiteral)))
+        #        except (TypeError, ValueError, InvalidGeoJSONException):
+        #            pass
 
         # Resources
         for resource_dict in dataset_dict.get('resources', []):
